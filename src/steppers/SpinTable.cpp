@@ -1,5 +1,6 @@
 #include "SpinTable.h"
 #include "potansiyometer/SpeedPot.h"
+#include "button/StartButton.h"
 
 #define NUM_STEPS 1600
 
@@ -19,11 +20,13 @@ void init_spin_motor()
 
 void spinCW()
 {
-  delay(1000);
+    Serial.println("TABLA DONUYOR");
+  
+  //delay(1000);
   digitalWrite(SPIN_MOTOR_ENA, LOW);
   spinMotor.move(NUM_STEPS);
 
-  while(spinMotor.currentPosition() != NUM_STEPS){
+  while(spinMotor.currentPosition() != NUM_STEPS && processStatus == true){
 
     int potValue = (int) readPotVaules();
 
@@ -38,18 +41,20 @@ void spinCW()
 
     // Adım motorunu belirtilen hızda hareket ettirin
     spinMotor.runSpeed();
+
+    // debaunce handle butonu okumamız lazım
   }
   spinMotor.setCurrentPosition(0);
   delay(1000);
-
+ Serial.println("TABLA DONME ISLEMI BITTI");
   return;
 }
 
 void spinCCW()
 {
-   spinMotor.move(-200);
+   spinMotor.move(-NUM_STEPS);
 
-  while(spinMotor.currentPosition() != -200){
+  while(spinMotor.currentPosition() != -NUM_STEPS){
 
     int potValue = (int) readPotVaules();
 
@@ -66,7 +71,7 @@ void spinCCW()
   return;
 }
 
-void stopStepper()
+void stopSpinMotor()
 {
     spinMotor.stop();
     spinMotor.setCurrentPosition(0);

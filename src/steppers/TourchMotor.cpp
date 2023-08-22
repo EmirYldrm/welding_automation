@@ -20,7 +20,9 @@ void init_tourch_motor()
 }
 
 void approachTourch()
-{
+{   
+    Serial.println("TORC YAKLASTIRILDI");
+
     // Motor enable edildi
     digitalWrite(TOURCH_MOTOR_ENA, LOW);
     
@@ -35,6 +37,8 @@ void approachTourch()
 
 void retractTourch()
 {
+    Serial.println("TORC UZAKLASTIRILDI");
+
     // Motor enable edildi
     digitalWrite(TOURCH_MOTOR_ENA, LOW);
 

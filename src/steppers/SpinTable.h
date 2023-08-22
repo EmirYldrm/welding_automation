@@ -17,6 +17,6 @@ void init_spin_motor();
 
 void spinCW();
 void spinCCW();
-void stopStepper();
+void stopSpinMotor();
 
 #endif
