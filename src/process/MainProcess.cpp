@@ -17,8 +17,6 @@ void startProcess()
     closeTourch();
     retractTourch();
 
-    processStatus == false;
-    
     return;
 }
 
