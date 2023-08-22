@@ -43,6 +43,7 @@ void spinCW()
     spinMotor.runSpeed();
 
     // debaunce handle butonu okumamız lazım
+    debounceHandle();
   }
   spinMotor.setCurrentPosition(0);
   delay(1000);
