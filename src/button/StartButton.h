@@ -11,6 +11,7 @@
 extern int buttonState;
 extern long lastDebounceTime;
 extern long debounceDelay;
+extern boolean processStatus;
 
 void init_start_button();
 void debounceHandle();
