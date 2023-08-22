@@ -6,7 +6,7 @@
 #include "servo/TourchTrigger.h"
 
 
-#define BUTTON_PIN 19
+#define BUTTON_PIN 19   //Z_MAX
 
 extern int buttonState;
 extern long lastDebounceTime;

@@ -2,7 +2,7 @@
 #define SERVO_MOTOR
 
 #include <Servo.h>
-# define SERVO_PIN 3
+# define SERVO_PIN 3    // X_MIN
 
 extern Servo triggerServo;
 extern int pos;

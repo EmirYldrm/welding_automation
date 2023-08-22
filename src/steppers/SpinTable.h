@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <AccelStepper.h>
 
-//Z MOTORA BAXLANACAK
+//E1 MOTORA BAXLANACAK
 #define SPIN_MOTOR_PUL 36
 #define SPIN_MOTOR_DIR 34
 #define SPIN_MOTOR_ENA 30
