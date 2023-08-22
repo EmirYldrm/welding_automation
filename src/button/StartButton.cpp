@@ -5,7 +5,7 @@
 int buttonState = LOW;
 long lastDebounceTime = 0;
 long debounceDelay = 200;
-boolean processStatus = false;
+volatile boolean processStatus = false;
 
 void init_start_button()
 {
@@ -26,14 +26,20 @@ void debounceHandle()
       Serial.println("BUTONA BASILDI BASLIYOR");
       processStatus = true;
       startProcess();
-      lastDebounceTime = millis();
       
+      processStatus = false;
+    
+      lastDebounceTime = millis();
+      Serial.println(processStatus);
+
     }
 
     // eger butona basılmışsa ve makine çalışır durumdaysa
     else if (buttonState == HIGH && processStatus == true){
 
       Serial.println("BUTONA BASILDI BITIRILIYOR");
+      Serial.println(processStatus);
+
       // sadece bu flag false yapılarak işlem bitirilebiliyor.
       processStatus = false;
       
