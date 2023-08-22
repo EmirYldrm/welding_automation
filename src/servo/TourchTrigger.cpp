@@ -13,18 +13,19 @@ void openTourch()
 {
     Serial.println("TORC ACILDI");
 
-    for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    for (pos = 0; pos <= 70; pos += 1) { // goes from 0 degrees to 180 degrees
         // in steps of 1 degree
         triggerServo.write(pos);              // tell servo to go to position in variable 'pos'
         delay(15);                       // waits 15 ms for the servo to reach the position
     }
+    Serial.println("TORC ACILMASI BITTI ");
 }
 
 void closeTourch()
 {
     Serial.println("TORC KAPANDI");
 
-    for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    for (pos = 70; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
         triggerServo.write(pos);              // tell servo to go to position in variable 'pos'
         delay(15);                       // waits 15 ms for the servo to reach the position
     }
