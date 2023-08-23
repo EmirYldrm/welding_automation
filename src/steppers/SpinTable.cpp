@@ -10,7 +10,7 @@ AccelStepper spinMotor(1, SPIN_MOTOR_PUL, SPIN_MOTOR_DIR);
 void init_spin_motor()
 {
     //spinMotor.setEnablePin(SPIN_MOTOR_ENA);
-    spinMotor.setMaxSpeed(1000);
+    spinMotor.setMaxSpeed(5000);
     spinMotor.setAcceleration(100);
     spinMotor.setSpeed(100);
     pinMode(SPIN_MOTOR_ENA, OUTPUT);
@@ -32,7 +32,7 @@ void spinCW()
 
     // Potansiyometre değerini hız aralığına dönüştürün
     // Örneğin, 0-1023 arasındaki analog değeri 1000-2000 adım/s arasındaki hıza dönüştürebilirsiniz
-    float speed = map(potValue, 0, 1023, 0,800);
+    float speed = map(potValue, 0, 1023, 0, 2000);
 
 
     // Adım motorunun hızını güncelleyin
