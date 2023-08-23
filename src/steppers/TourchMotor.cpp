@@ -1,4 +1,3 @@
-#include "steppers/TourchMotor.h"
 #include "TourchMotor.h"
 
 AccelStepper tourchMotor(1, TOURCH_MOTOR_PUL, TOURCH_MOTOR_DIR);
@@ -16,8 +15,7 @@ void init_tourch_motor()
     tourchMotor.setCurrentPosition(0);
 
     pinMode(TOURCH_MOTOR_ENA, OUTPUT);
-    // Motor enable edildi
-    digitalWrite(TOURCH_MOTOR_ENA, LOW);
+
 }
 
 void approachTourch()
@@ -30,7 +28,7 @@ void approachTourch()
     delay(100);
     while(digitalRead(LIMIT_SWITCH_PIN) == HIGH){
       Serial.println("TORC YAKLASTIRILIYOR");
-      tourchMotor.setSpeed(100);  
+      tourchMotor.setSpeed(1000);  
       tourchMotor.runSpeed();
     }
     tourchMotor.setCurrentPosition(0);
@@ -45,12 +43,15 @@ void retractTourch()
     digitalWrite(TOURCH_MOTOR_ENA, LOW);
 
 
-    tourchMotor.move(OPEN_POS_IN_STEPS);
-    tourchMotor.setMaxSpeed(200);
+    tourchMotor.move(-OPEN_POS_IN_STEPS);
+    tourchMotor.setMaxSpeed(100);
     delay(100);
     tourchMotor.runToPosition();
     delay(100);
     tourchMotor.setCurrentPosition(0);
+
+    // Motor disable edildi
+    digitalWrite(TOURCH_MOTOR_ENA, HIGH);
 
 
 }
