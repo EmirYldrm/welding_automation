@@ -19,7 +19,7 @@ void debounceHandle()
     buttonState = digitalRead(BUTTON_PIN);
 
   if ( (millis() - lastDebounceTime) > debounceDelay) {
-    Serial.println(millis() - lastDebounceTime);
+  
     // Eger butona basılmışsa ve makine çalışır durumda değilse
     if( buttonState  == LOW && processStatus == false){
       

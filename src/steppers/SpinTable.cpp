@@ -2,7 +2,7 @@
 #include "potansiyometer/SpeedPot.h"
 #include "button/StartButton.h"
 
-#define NUM_STEPS 1600
+#define NUM_STEPS 8000
 
 AccelStepper spinMotor(1, SPIN_MOTOR_PUL, SPIN_MOTOR_DIR);
 
@@ -10,9 +10,9 @@ AccelStepper spinMotor(1, SPIN_MOTOR_PUL, SPIN_MOTOR_DIR);
 void init_spin_motor()
 {
     //spinMotor.setEnablePin(SPIN_MOTOR_ENA);
-    spinMotor.setMaxSpeed(5000);
-    spinMotor.setAcceleration(100);
-    spinMotor.setSpeed(100);
+    spinMotor.setMaxSpeed(2000);
+    spinMotor.setAcceleration(2000);
+    spinMotor.setSpeed(2000);
     pinMode(SPIN_MOTOR_ENA, OUTPUT);
     digitalWrite(SPIN_MOTOR_ENA, LOW);
     //spinMotor.enableOutputs();
@@ -32,11 +32,12 @@ void spinCW()
 
     // Potansiyometre değerini hız aralığına dönüştürün
     // Örneğin, 0-1023 arasındaki analog değeri 1000-2000 adım/s arasındaki hıza dönüştürebilirsiniz
-    float speed = map(potValue, 0, 1023, 0, 2000);
+    float speed = potValue * 2; // map(potValue, 0, 1023, 0, 5000);
 
 
     // Adım motorunun hızını güncelleyin
     spinMotor.setSpeed(speed);
+
     //Serial.println(speed);
 
     // Adım motorunu belirtilen hızda hareket ettirin

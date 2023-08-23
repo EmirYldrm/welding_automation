@@ -1,6 +1,8 @@
 #include "SpeedPot.h"
 #include <Arduino.h>
 
+#define NUM_READ 5
+
 void swap(int &a, int &b)
 {
         int temp = a;
@@ -64,13 +66,12 @@ float calculateMedianMean(int arr[], int size)
 
 float readPotVaules()
 {
-   int readings[9];
-    for (int i = 0; i < 9; i++) {
+   int readings[NUM_READ];
+    for (int i = 0; i < NUM_READ; i++) {
         readings[i] = analogRead(POTANS_PIN);
         delayMicroseconds(300);  // Okuma aralığını ayarlayabilirsiniz
     }
 
-    float average = calculateMedianMean(readings, 9);
-
+    float average = calculateMedianMean(readings, NUM_READ);
     return average;
 }
