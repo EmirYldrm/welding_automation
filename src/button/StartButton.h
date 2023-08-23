@@ -9,8 +9,8 @@
 #define BUTTON_PIN 19   //Z_MAX
 
 extern int buttonState;
-extern long lastDebounceTime;
-extern long debounceDelay;
+extern unsigned long lastDebounceTime;
+extern unsigned long debounceDelay;
 volatile extern boolean processStatus;
 
 void init_start_button();
