@@ -1,6 +1,6 @@
 #include "StartButton.h"
 #include "process/MainProcess.h"
-
+#include "eeprom/eepromHandler.h"
 
 int buttonState = LOW;
 unsigned long lastDebounceTime = 0;
@@ -24,13 +24,14 @@ void debounceHandle()
     if( buttonState  == LOW && processStatus == false){
       
       Serial.println("BUTONA BASILDI BASLIYOR");
+
       processStatus = true;
-      startProcess();
-      
+      startProcess();   // işlemi başlatıyoruz
       processStatus = false;
-    
+
+      updateCounter();  // eeproma kayıtlı counter her döngüde artırıyoruz.
       
-      Serial.println(processStatus);
+      Serial.println(processCounter); // sayaç seri ekrana yazdırılıyor.
 
     }
 
@@ -42,8 +43,7 @@ void debounceHandle()
 
       // sadece bu flag false yapılarak işlem bitirilebiliyor.
       processStatus = false;
-      
-     // lastDebounceTime = millis();
+  
     
     }
     lastDebounceTime = millis();
