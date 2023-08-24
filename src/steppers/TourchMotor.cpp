@@ -9,9 +9,9 @@ void init_limit_sensor()
 
 void init_tourch_motor()
 {
-    tourchMotor.setMaxSpeed(200);
-    tourchMotor.setAcceleration(200);
-    tourchMotor.setSpeed(200);
+    tourchMotor.setMaxSpeed(1000);
+    tourchMotor.setAcceleration(1000);
+    tourchMotor.setSpeed(1000);
     tourchMotor.setCurrentPosition(0);
 
     pinMode(TOURCH_MOTOR_ENA, OUTPUT);
@@ -27,7 +27,6 @@ void approachTourch()
     
     delay(100);
     while(digitalRead(LIMIT_SWITCH_PIN) == HIGH){
-      Serial.println("TORC YAKLASTIRILIYOR");
       tourchMotor.setSpeed(1000);  
       tourchMotor.runSpeed();
     }
