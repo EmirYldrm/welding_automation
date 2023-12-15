@@ -44,7 +44,7 @@ void retractTourch()
 
     tourchMotor.move(-OPEN_POS_IN_STEPS);
     tourchMotor.setMaxSpeed(1000);
-    delay(100);
+    //delay(100);
     tourchMotor.runToPosition();
     delay(100);
     tourchMotor.setCurrentPosition(0);

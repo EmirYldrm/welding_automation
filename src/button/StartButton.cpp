@@ -4,7 +4,7 @@
 
 int buttonState = LOW;
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 500;
+unsigned long debounceDelay = 700;
 volatile boolean processStatus = false;
 
 void init_start_button()

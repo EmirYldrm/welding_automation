@@ -7,7 +7,7 @@ int pos = 0;
 
 void init_servo_motor()
 {   
-    triggerServo.write(0);
+    triggerServo.write(40);
     triggerServo.attach(SERVO_PIN);
 }
 
@@ -20,7 +20,7 @@ void openTourch()
         triggerServo.write(pos);              // tell servo to go to position in variable 'pos'
                           // waits 15 ms for the servo to reach the position
     }*/
-    triggerServo.write(35);
+    triggerServo.write(12);
     Serial.println("TORC ACILMASI BITTI ");
 }
 
@@ -33,5 +33,5 @@ void closeTourch()
                               // waits 15 ms for the servo to reach the position
     }
     */
-   triggerServo.write(0);
+   triggerServo.write(40);
 }

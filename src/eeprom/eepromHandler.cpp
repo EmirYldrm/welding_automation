@@ -12,5 +12,6 @@ void init_EEPROM()
 void updateCounter()
 {
     processCounter++;
-    EEPROM.write(EEPROM_ADDRESS, processCounter);
+    EEPROM.put(EEPROM_ADDRESS, processCounter);
+    //Serial.print("toplam basim sayisi: "); Serial.print(processCounter); Serial.println(); 
 }

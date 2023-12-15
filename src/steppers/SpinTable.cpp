@@ -2,7 +2,7 @@
 #include "potansiyometer/SpeedPot.h"
 #include "button/StartButton.h"
 
-#define NUM_STEPS 6400
+#define NUM_STEPS 6444
 
 AccelStepper spinMotor(1, SPIN_MOTOR_PUL, SPIN_MOTOR_DIR);
 
@@ -48,7 +48,7 @@ void spinCW()
   }
   spinMotor.setCurrentPosition(0);
   delay(1000);
- Serial.println("TABLA DONME ISLEMI BITTI");
+  Serial.println("TABLA DONME ISLEMI BITTI");
   return;
 }
 

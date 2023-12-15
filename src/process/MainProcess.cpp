@@ -8,13 +8,16 @@
 #include "steppers/TourchMotor.h"
 #include "servo/TourchTrigger.h"
 #include "button/StartButton.h"
+#include "tourch_relay/TourchHandler.h"
 
 void startProcess()
 {   
     approachTourch();
-    openTourch();
+    //openTourch();
+    openTourchRelay();
     spinCW();
-    closeTourch();
+    //closeTourch();
+    closeTourchRelay();
     retractTourch();
 
     return;
@@ -22,7 +25,8 @@ void startProcess()
 
 void cancelProcess()
 {
-     closeTourch();
+     //closeTourch();
+     closeTourchRelay();
      stopSpinMotor();
      retractTourch();
 
