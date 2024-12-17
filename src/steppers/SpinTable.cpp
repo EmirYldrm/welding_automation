@@ -2,7 +2,10 @@
 #include "potansiyometer/SpeedPot.h"
 #include "button/StartButton.h"
 
-#define NUM_STEPS 6444
+#define NUM_STEPS 1611
+// 3200=6444
+// 1600=3222
+// 800= 1611
 
 AccelStepper spinMotor(1, SPIN_MOTOR_PUL, SPIN_MOTOR_DIR);
 
